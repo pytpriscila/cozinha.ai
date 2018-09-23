@@ -16,6 +16,11 @@ sys.setdefaultencoding("utf-8")
 application = Flask(__name__)
 application.debug = True
 
+cooking_recommendation = pd.read_csv("/home/priscila/Documentos/hackathon-cotidiano/recipe_final.csv",
+header=0,
+usecols=['index','cuisine','id','rating','time', 'ingredient_amount', 'serving_number'])
+
+
 @application.route('/show')
 
 def show_recipes():
