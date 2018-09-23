@@ -32,7 +32,7 @@ def show_recipes():
     & (cooking_recommendation['time']==int(time)) & (cooking_recommendation['rating']==int(rating)), :]
     entries = (cooking_recommendation[:max_results])
     error = None
-    entries = entries.toList()
+    entries = entries.values.toList()
     print(type(entries))
     print(entries)
     
