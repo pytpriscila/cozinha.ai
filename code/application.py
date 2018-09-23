@@ -32,7 +32,8 @@ def show_recipes():
     & (cooking_recommendation['time']==int(time)) & (cooking_recommendation['rating']==int(rating)), :]
     entries = (cooking_recommendation[:max_results])
     error = None
-    print(entries)print('aaaahahaha')
+    print(entries)
+    print('aaaahahaha')
     
     print(entries.info())
    
