@@ -28,6 +28,8 @@ def show_recipes():
     serving_number  = request.args.get('serving_number')
     time = request.args.get('time')
     rating = request.args.get('rating')
+    print ('serving_number')
+    print (serving_number)
     suggestions = cooking_recommendation.loc[(cooking_recommendation['serving_number']==int(serving_number)) 
     & (cooking_recommendation['time']==int(time)) & (cooking_recommendation['rating']==int(rating)), :]
     entries = (cooking_recommendation[:max_results])
