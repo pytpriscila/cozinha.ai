@@ -17,36 +17,13 @@ application = Flask(__name__)
 application.debug = True
 
 @application.route('/show')
-def show_recipes():
-    cur_flavor = request.args.get('flavor')
-    cur_height = float(request.args.get('serving_number'))/100
-    cur_weight = request.args.get('time')
-    cur_age = request.args.get('rating')
-    cur_gender = request.args.get('budget')
-    cur_activity = request.args.get('activityLevel')
-    #cur.execute("SELECT name FROM recipes WHERE flavor = %s;", [cur_flavor])
-    conn = mysql.connect()
-    cur = conn.cursor()
-    cur.execute("SELECT ingredient_amount, nutrition FROM recipe_info WHERE dbscan_label = %s;", [cur_flavor])
-    fetch_result = cur.fetchall()   
-    satisfied_recipes = constraint.nutritional_constraints(fetch_result, cur_age, cur_weight, cur_height, cur_gender, 'Active')
-    # provider, big_image
-    error = None
-    entries = []
-    count = 0
-    for group in satisfied_recipes:
-        templist = []
-        for i in range(0,3):
-            cur.execute("SELECT name, cuisine, provider, big_image, ingredient_amount FROM recipe_info WHERE ingredient_amount = %s and dbscan_label = %s;", [group[i], cur_flavor])
-            temp = cur.fetchall()
-            templist.append(temp)
-        entries.append(templist)
-        count = count + 1
-        if count > 3:
-            break
-    conn.close()
-    #return render_template('content.html', entries=entries, error=error)
-    return render_template('recipeRecommend.html', entries=entries, error=error)
+def show_recipes(serving_number, time, rating, max_results=3):
+    suggestions = cooking_recommendation.loc[(cooking_recommendation['serving_number']==serving_number) 
+    & (cooking_recommendation['time']==time) & (cooking_recommendation['rating']==rating), :]
+    
+    print (cooking_recommendation[:max_results])
+
+    #return render_template('recipeRecommend.html', entries=entries, error=error)
 """
     try:
         conn = mysql.connect()
@@ -69,12 +46,12 @@ def show_recipes():
 @application.route('/', methods=['GET', 'POST'])
 def choose_flavor():
     if request.method == 'POST':
-        flavor = request.form['flavor']
-        height = request.form['height']
-        weight = request.form['weight']
-        age = request.form['age']
-        gender = request.form['gender']
-        return redirect(url_for('show_recipes', flavor=flavor, height=height, weight=weight, age=age, gender=gender))
+        qtd_pessoas = request.form['qtd_pessoas']
+        serving_number = request.form['serving_number']
+        rating = request.form['rating']
+        #return redirect(url_for('most_popular_receita_for_cliente', serving_number=serving_number, time=time, rating=rating))
+        return redirect(url_for('show_recipes', serving_number=serving_number, time=time, rating=rating))
+
     else:
         return render_template('index.html')
 
