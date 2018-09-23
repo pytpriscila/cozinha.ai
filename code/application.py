@@ -49,7 +49,7 @@ def choose_flavor():
         #qtd_pessoas = request.form['qtd_pessoas']
         serving_number = request.form['qtd_pessoas']
         time = request.form['tempo']
-       #rating = request.form['rating']
+        rating = request.form['activity']
         #return redirect(url_for('most_popular_receita_for_cliente', serving_number=serving_number, time=time, rating=rating))
         return redirect(url_for('show_recipes', serving_number=serving_number, time=time, rating=rating))
 
