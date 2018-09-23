@@ -25,11 +25,11 @@ usecols=['index','cuisine','id','rating','time', 'ingredient_amount', 'serving_n
 @application.route('/show')
 def show_recipes():
     max_results=3
-    serving_number  = request.args.get(serving_number)
-    time = request.args.get(time)
-    rating = request.args.get(rating)
+    serving_number  = request.args.get(''serving_number')
+    time = request.args.get('time')
+    rating = request.args.get('rating
     suggestions = cooking_recommendation.loc[(cooking_recommendation['serving_number']==serving_number) 
-    & (cooking_recommendation['time']==time) & (cooking_recommendation['rating']==rating), :]
+    & (cooking_recommendation['time']==int (serving_number)) & (cooking_recommendation['rating']==rating), :]
     
     print (cooking_recommendation[:max_results])
 
