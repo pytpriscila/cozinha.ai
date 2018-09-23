@@ -17,7 +17,7 @@ application = Flask(__name__)
 application.debug = True
 
 @application.route('/show')
-def show_recipes(self.request.GET.get('serving_number'), self.request.GET.get('rating'), self.request.GET.get('time'), max_results=3):
+def show_recipes(serving_number, time, rating, max_results=3):
     suggestions = cooking_recommendation.loc[(cooking_recommendation['serving_number']==serving_number) 
     & (cooking_recommendation['time']==time) & (cooking_recommendation['rating']==rating), :]
     
