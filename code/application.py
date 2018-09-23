@@ -11,7 +11,7 @@ from settings import APP_STATIC
 
 #import sys
 #reload(sys)
-sys.setdefaultencoding("utf-8")
+#sys.setdefaultencoding("utf-8")
 
 application = Flask(__name__)
 application.debug = True
