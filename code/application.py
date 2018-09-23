@@ -34,7 +34,7 @@ def show_recipes():
     error = None
     entries = entries.as_matrix()
     print(type(entries))
-    print(entries[0])
+    print(entries[0][6])
     
    
     
