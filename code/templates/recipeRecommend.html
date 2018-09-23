@@ -250,27 +250,25 @@
 
 <script>
 // Script to open and close sidebar
-$(function(){
-    $("#image1").click(function(){
-    document.getElementById("report").style.display='block';
-    ('#report').html('{{entries[0][7]}}')
-    });
-});
+
 
 $(function(){
     $("#image2").click(function(){
     document.getElementById("report").style.display='block';
     ('#report').html('{{entries[1][7]}}')
   });
-});
-
-$(function(){
-    $("#image3").click(function(){
+  
+  $("#image3").click(function(){
     document.getElementById("report").style.display='block';
     $('#report').html('{{entries[2][7]}}')
     });
+  
+   $("#image1").click(function(){
+    document.getElementById("report").style.display='block';
+    ('#report').html('{{entries[0][7]}}')
+    });
+  
 });
-
 
 </script>
 
