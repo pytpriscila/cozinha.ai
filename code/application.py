@@ -33,9 +33,7 @@ def show_recipes():
     entries = (cooking_recommendation[:max_results])
     error = None
     entries = entries.as_matrix()
-    print(entries[0][7])
-    print(entries[1][7])
-    print(entries[2][7])
+
 
     return render_template('recipeRecommend.html', entries=entries, error=error)
 
