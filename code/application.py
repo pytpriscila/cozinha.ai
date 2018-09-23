@@ -32,13 +32,11 @@ def show_recipes():
     & (cooking_recommendation['time']==int(time)) & (cooking_recommendation['rating']==int(rating)), :]
     entries = (cooking_recommendation[:max_results])
     error = None
-    print(suggestions)
-    print('aaaahahaha')
-    
-    #print(entries.info())
+    print(entries)
+    print(entries.info())
    
     
-    return render_template('recipeRecommend.html', entries=suggestions, error=error)
+    return render_template('recipeRecommend.html', entries=entries, error=error)
 
 @application.route('/', methods=['GET', 'POST'])
 def choose_flavor():
