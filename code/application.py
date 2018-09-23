@@ -30,10 +30,12 @@ def show_recipes():
     rating = request.args.get('rating')
     suggestions = cooking_recommendation.loc[(cooking_recommendation['serving_number']==int(serving_number)) 
     & (cooking_recommendation['time']==int(time)) & (cooking_recommendation['rating']==int(rating)), :]
-    entries_bruto = (cooking_recommendation[:max_results])
+    entries = (cooking_recommendation[:max_results])
     error = None
-    print(entries_bruto)
-    print(entries_bruto.info())
+    print(entries)
+    print(entries.info())
+   
+    
     return render_template('recipeRecommend.html', entries=entries, error=error)
 
 @application.route('/', methods=['GET', 'POST'])
