@@ -266,17 +266,17 @@
 $(function(){
     $("#image2").click(function(){
     $('.recipe').hide();
-    ('#recipe1').show();
+    $('#recipe2').show();
   });
   
   $("#image3").click(function(){
-    document.getElementById("report").style.display='block';
-    $('#report').html('{{entries[2][7]}}')
+    $('.recipe').hide();
+    $('#recipe3').show();
     });
   
    $("#image1").click(function(){
-    document.getElementById("report").style.display='block';
-    ('#report').html('{{entries[0][7]}}')
+    $('.recipe').hide();
+    $('#recipe1').show();
     });
   
 });
