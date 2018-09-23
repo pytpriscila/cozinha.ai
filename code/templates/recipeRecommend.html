@@ -59,7 +59,7 @@
     </nav>
 
   <div class="w3-display-middle w3-jumbo">
-    <p style="font-family: 'Pacifico', cursive; font-size=96px;">Cozinha Ai</p>
+    <p style="font-family: 'Pacifico', cursive; font-size=96px;"></p>
   </div>
 
     <div class="container" style="width: 100%; padding-left: 0px; padding-right:0px; margin-left: 100px;">
@@ -265,8 +265,8 @@
 
 $(function(){
     $("#image2").click(function(){
-    document.getElementById("report").style.display='block';
-    ('#report').html('{{entries[1][7]}}')
+    $('.recipe').hide();
+    ('#recipe1').show();
   });
   
   $("#image3").click(function(){
