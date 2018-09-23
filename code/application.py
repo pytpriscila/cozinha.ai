@@ -19,7 +19,7 @@ application.debug = True
 
 cooking_recommendation = pd.read_csv("/home/priscila/Documentos/hackathon-cotidiano/recipe_final.csv",
 header=0,
-usecols=['index','cuisine','id','rating','time', 'ingredient_amount', 'serving_number'])
+usecols=['index','cuisine','id','rating', 'name', 'time', 'big_image', 'ingredient_amount', 'serving_number'])
 
 
 @application.route('/show')
@@ -32,7 +32,7 @@ def show_recipes():
     & (cooking_recommendation['time']==int(time)) & (cooking_recommendation['rating']==int(rating)), :]
     entries = (cooking_recommendation[:max_results])
     error = None
-    #sgjhdga
+
     print(entries)    
     return render_template('recipeRecommend.html', entries=entries, error=error)
 
