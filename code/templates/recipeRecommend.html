@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Recipe Recommendation System</title>
+    <title>Sistema de Recomendação de Receitas</title>
 
     <!-- Bootstrap core CSS -->
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
@@ -47,7 +47,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Health Ninja</a>
+          <a class="navbar-brand" href="#">Cozinha Ai</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -60,7 +60,7 @@
     </nav>
 
   <div class="w3-display-middle w3-jumbo">
-    <p style="font-family: 'Pacifico', cursive; font-size=96px;">Health Ninja</p>
+    <p style="font-family: 'Pacifico', cursive; font-size=96px;">Cozinha Ai</p>
   </div>
 
     <div class="container" style="width: 100%; padding-left: 0px; padding-right:0px; margin-left: 100px;">
@@ -252,6 +252,7 @@
 // Script to open and close sidebar
 $(function(){
     $("#image1").click(function(){
+        alert('haj')
     document.getElementById("report").style.display='block';
     ('#report').html('{{ entries[0][7]}}')
     });
