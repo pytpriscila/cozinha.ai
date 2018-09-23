@@ -18,13 +18,13 @@ application.debug = True
 
 @application.route('/show')
 
-def show_recipes(serving_number, time, rating, max_results=3):
+def show_recipes():
     
-serving_number    cur_height = float(request.args.get('height'))/100
-    cur_weight = request.args.get('weight')
-    cur_age = request.args.get('age')
-    cur_gender = request.args.get('gender')
-    cur_activity = request.args.get('activityLevel')
+    max_results=3
+    serving_number  = request.args.get('serving_number')
+    time = request.args.get('time')
+    rating = request.args.get('rating')
+ 
     
     suggestions = cooking_recommendation.loc[(cooking_recommendation['serving_number']==serving_number) 
     & (cooking_recommendation['time']==time) & (cooking_recommendation['rating']==rating), :]
