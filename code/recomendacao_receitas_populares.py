@@ -36,7 +36,19 @@ def most_popular_receita_for_cliente(serving_number, time, rating, max_results=3
     print (cooking_recommendation[:max_results])
 
 
-most_popular_receita_for_cliente(4,600,5, max_results=3)
+#most_popular_receita_for_cliente(4,600,5, max_results=3)
+
+@recomendacao_receita_populares.route('/', methods=['GET', 'POST'])
+def choose_plate():
+    if request.method == 'POST':
+        qtd_pessoas = request.form['qtd_pessoas']
+        serving_number = request.form['serving_number']
+        rating = request.form['rating']
+        return redirect(url_for('most_popular_receita_for_cliente', serving_number=serving_number, time=time, rating=rating))
+    else:
+        return render_template('index.html')
+
+
 
 #selecionando dados do dataset do usuario 0.
 '''
