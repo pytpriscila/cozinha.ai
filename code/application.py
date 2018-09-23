@@ -47,8 +47,8 @@ def show_recipes(serving_number, time, rating, max_results=3):
 def choose_flavor():
     if request.method == 'POST':
         qtd_pessoas = request.form['qtd_pessoas']
-        serving_number = request.form['serving_number']
-        rating = request.form['rating']
+        #serving_number = request.form['serving_number']
+        #rating = request.form['rating']
         #return redirect(url_for('most_popular_receita_for_cliente', serving_number=serving_number, time=time, rating=rating))
         return redirect(url_for('show_recipes', serving_number=serving_number, time=time, rating=rating))
 
