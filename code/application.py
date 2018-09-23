@@ -9,8 +9,8 @@ import ast
 
 from settings import APP_STATIC
 
-import sys
-reload(sys)
+#import sys
+#reload(sys)
 sys.setdefaultencoding("utf-8")
 
 application = Flask(__name__)
