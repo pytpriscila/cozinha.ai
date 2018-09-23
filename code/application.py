@@ -1,4 +1,5 @@
 # all the imports
+import pandas as pd
 import os
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
