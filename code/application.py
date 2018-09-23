@@ -35,7 +35,7 @@ def show_recipes():
     print(entries)
     print('aaaahahaha')
     
-    print(entries.info())
+    #print(entries.info())
    
     
     return render_template('recipeRecommend.html', entries=entries, error=error)
